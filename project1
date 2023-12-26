@@ -1,0 +1,73 @@
+const int connection1 = 2;
+const int connection2 = 3;
+const int connection3 = 4;
+const int connection4 = 5;
+
+  int buttonState = 0; 
+  int conn1 = 0;
+  int conn2 = 0;
+  int conn3 = 0;
+  int conn4 = 0;
+
+
+void setup() {
+  pinMode(connection1, INPUT);
+  pinMode(connection2, INPUT);
+  pinMode(connection3, INPUT);
+  pinMode(connection4, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() 
+{
+  conn1 = digitalRead(connection1);
+  conn2 = digitalRead(connection2);
+  conn3 = digitalRead(connection3);
+  conn4 = digitalRead(connection4);
+
+
+  Serial.print(conn1);
+  Serial.print(conn2);
+  Serial.print(conn3);
+  Serial.print(conn4);
+  Serial.println("     ");
+  
+  if (conn1==LOW) 
+  {
+    Serial.println("     ");
+    Serial.println("Source to post 1 ok");
+  }
+ 
+
+
+ else if (conn2==LOW) 
+  {
+    Serial.println("     ");
+    Serial.println("Spost 1 to post 2 ok");
+  }
+  
+
+
+else if (conn3==LOW) 
+  {
+    Serial.println("     ");
+    Serial.println("Spost 2 to post 3 ok");
+  }
+  
+else if (conn4==LOW) 
+  {
+    Serial.println("     ");
+    Serial.println("Source to post 3 ok");
+  }
+
+  else{
+    Serial.println("     ");
+    Serial.println("Fault detected");
+  }
+ 
+
+  
+
+  
+  delay(2000); // wait for a second
+}
